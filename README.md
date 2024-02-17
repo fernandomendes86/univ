@@ -6,4 +6,4 @@
 * Tailwindcss Rails 2.3
 
 ## Start Application With Foreman
-univ$ `./bin/dev`
+`univ$ bin/dev`
