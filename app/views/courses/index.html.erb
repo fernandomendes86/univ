@@ -1,10 +1,6 @@
 <h1 class="font-bold">Course Listing</h1>
 <br>
   <% @courses.each do |course| %>
-    <ul class="list-none">
-    <li>Code: <%= course.short_name %></li> 
-    <li>Name: <%= course.name %></li> 
-    <li>Description: <%= course.description %></li>
-  </ul><br>
+    <%= render partial: "course", locals: {course: course} %>
   <% end %>
 </ul>
