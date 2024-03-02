@@ -10,9 +10,9 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
-      redirect_to root_path, notice: "Quote was successfully updated."
+      flash.notice = "Student #{@student.name.capitalize} was successfully created."
+      redirect_to root_path
     else
-      flash.alert = "User not found."
       render 'new'
     end
   end

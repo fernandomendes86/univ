@@ -6,17 +6,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
-
   <body>
     <%= render 'layouts/menu' %>
     <main class="mx-16 p-8">
-      <% flash.each do |type, msg| %>
-        <p><%= msg %></p>
-      <% end %>
-    <%= yield %>
+      <%= render 'layouts/flash_message' %>
+      <%= yield %>
     </main>
     <%= render 'layouts/footer' %>
   </body>
