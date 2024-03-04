@@ -1,6 +1,7 @@
 <h1 class="font-bold">Student Listing</h1>
 <br>
-  <% @students.each do |student| %>
-    <%= render partial: "student", locals: {student: student} %>
-  <% end %>
-</ul>
+<% @students.each do |student| %>
+  <p>
+    <%= render partial: 'student', locals: { student: student } %>
+  </p>
+<% end %>
