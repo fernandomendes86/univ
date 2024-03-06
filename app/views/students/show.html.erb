@@ -2,4 +2,5 @@
 <br>
 <p>
   <%= render partial: 'student', locals: { student: @student } %>
+  <%= link_to "Edit Profile", edit_student_path(@student.id), class: 'hover:bg-teal-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-500 rounded my-3' %>
 </p>
