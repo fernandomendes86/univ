@@ -1,4 +1,6 @@
 class Student < ApplicationRecord
+  has_secure_password
+  
   validates_presence_of :name
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: URI::MailTo::EMAIL_REGEXP }
 
