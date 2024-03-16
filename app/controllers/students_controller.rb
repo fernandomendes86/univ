@@ -1,6 +1,8 @@
 class StudentsController < ApplicationController
+  skip_before_action :require_user, only: [:new, :create]
   before_action :set_student, only: [:show, :edit, :update]
-
+  before_action :is_allowed?, only: [:edit, :update]
+  
   def index
     @students = Student.all
   end
@@ -35,6 +37,12 @@ class StudentsController < ApplicationController
   end
 
   private
+
+  def is_allowed?
+    return if @student == current_user
+  
+    redirect_to current_user
+  end
 
   def set_student
     @student = Student.find(params[:id])
