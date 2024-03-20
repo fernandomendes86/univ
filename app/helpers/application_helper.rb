@@ -12,12 +12,13 @@ module ApplicationHelper
   end
 
   def flash_message(type, msg)
-    color = type == 'notice' ? 'green' : 'red' 
-    content_tag(:div, id: 'flash_message', class: "p-4 mb-4 text-sm text-#{color}-800 rounded-lg bg-#{color}-50 dark:bg-gray-800 dark:text-#{color}-400", role: "alert") do
-    msg << content_tag(:button, type:"button", class: 'float-end text-[30px]') do 
-             "&times;".html_safe
-           end
-    msg.html_safe
+    class_color = "p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+    class_color = "p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" if type != 'notice'     
+    content_tag(:div, id: 'flash_message', class: class_color, role: "alert") do
+      msg << content_tag(:button, type:"button", class: 'float-end text-[30px]') do 
+               "&times;".html_safe
+             end
+      msg.html_safe
     end
   end
 end

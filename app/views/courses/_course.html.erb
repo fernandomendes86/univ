@@ -2,4 +2,7 @@
   <li>Code: <%= course.short_name %></li> 
   <li>Name: <%= course.name %></li> 
   <li>Description: <%= course.description %></li>
+  <% if logged_in? && !course.students.include?(current_user) %>
+    <%= button_to("Enroll", course_enroll_path(course_id: course.id), method: :post) %>
+   <% end %>
 </ul><br>

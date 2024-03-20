@@ -1,5 +1,5 @@
 <ul class="list-none">
   <li>Name: <%= student.name %></li> 
   <li>Email: <%= student.email %></li>
-  <li>Couse: <%= 'NONE' %></li> 
+  <li>Couses: <%= student.courses.pluck(:name).join("; ") %></li> 
 </ul><br>
